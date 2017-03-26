@@ -1,3 +1,4 @@
+// @NOTE: Fork from https://github.com/sebaferreras/Ionic2-MultiLevelSideMenu
 // Angular references
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
