@@ -14,9 +14,12 @@ export class MenuData {
   constructor(private http: Http) {}
 
   getAllData(): Observable<MenuData[]> {
-    // let params = new URLSearchParams();
-    // params.set('pageSize', '10');
-    return this.http.get('http://mobile.dpe.go.th/web/index.php?r=ws/service/get-tbl-menu')
+    let params = new URLSearchParams();
+    params.set('MenuId', '');
+
+    return this.http.get('http://mobile.dpe.go.th/web/index.php?r=ws/service/get-tbl-menu', {
+      'search': params
+    })
     .map((res: Response) => {
       return res.json();
     });
