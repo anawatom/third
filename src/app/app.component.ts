@@ -23,19 +23,11 @@ export class MyApp {
 
   rootPage: any = Page1;
 
-  // pages: Array<{title: string, component: any}>;
-
   constructor(
     public platform: Platform,
     private menuData: MenuData,
     private menuCtrl: MenuController
   ) {
-    // used for an example of ngFor and navigation
-    // this.pages = [
-    //   { title: 'Page One', component: Page1 },
-    //   { title: 'Page Two', component: Page2 }
-    // ];
-
     this.initializeApp();
   }
 
@@ -46,7 +38,6 @@ export class MyApp {
       StatusBar.styleDefault();
       Splashscreen.hide();
 
-      // @TODO: This function should be moved to menu provider
       this.menuData.getAllData()
       .subscribe(
         (res: any) => {
@@ -107,8 +98,6 @@ export class MyApp {
             tmpMenuList.push(menu);
           });
           this.menuList = tmpMenuList;
-
-          // this.menuList = this.sideMenu.getSampleMenuOptions(Page2);
         },
         (error: any) => {
           console.error(error);
