@@ -21,7 +21,7 @@ export class MenuData {
       'search': params
     })
     .map((res: Response) => {
-      return res.json();
+      return res.json().data;
     });
   }
 }
