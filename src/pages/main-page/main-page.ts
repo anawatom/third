@@ -3,13 +3,13 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-page1',
-  templateUrl: 'page1.html'
+  selector: 'main-page',
+  templateUrl: 'main-page.html'
 })
-export class Page1 {
+export class MainPage {
 
   constructor(public navCtrl: NavController) {
-    console.log('Page1');
+    console.log('Main page');
   }
 
 }

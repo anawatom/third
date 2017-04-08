@@ -7,7 +7,7 @@ import { MenuOptionModel, SideMenuContentComponent } from '../components/side-me
 
 import { MenuData } from '../providers/menu-data/menu-data';
 
-import { Page1 } from '../pages/page1/page1';
+import { MainPage } from '../pages/main-page/main-page';
 import { Page2 } from '../pages/page2/page2';
 
 
@@ -21,7 +21,7 @@ export class MyApp {
 
   public menuList: Array<MenuOptionModel> = [];
 
-  rootPage: any = Page1;
+  rootPage: any = MainPage;
 
   constructor(
     public platform: Platform,
@@ -123,7 +123,7 @@ export class MyApp {
       this.sideMenu.collapseAllOptions();
 
       // Redirect to the selected page
-      this.nav.push(option.component || Page1, {
+      this.nav.push(option.component || MainPage, {
         'title': option.displayName,
         'htmlContent': option.htmlContent
       });
