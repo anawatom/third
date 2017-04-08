@@ -73,6 +73,32 @@ $colors: (
 
 // Fonts
 // --------------------------------------------------
+@font-face {
+  font-family: 'super';
+  src: url($font-path + "/supermarket.eot");
+  src: url($font-path + "/supermarket.eot?#iefix") format("embedded-opentype"), url($font-path + "/supermarket.woff2") format("woff2"), url($font-path + "/supermarket.woff") format("woff"), url($font-path + "/supermarket.ttf") format("truetype"), url($font-path + "/supermarket.svg#supermarketregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
 
-@import "roboto";
-@import "noto-sans";
+@font-face {
+  font-family: 'hel55';
+  src: url($font-path + "/db_helvethaica_x_v3.2.eot");
+  src: url($font-path + "/db_helvethaica_x_v3.2.eot?#iefix") format("embedded-opentype"), url($font-path + "/db_helvethaica_x_v3.2.woff2") format("woff2"), url($font-path + "/db_helvethaica_x_v3.2.woff") format("woff"), url($font-path + "/db_helvethaica_x_v3.2.ttf") format("truetype"), url($font-path + "/db_helvethaica_x_v3.2.svg#db_helvethaica_x55_regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'hel68';
+  src: url($font-path + "/db_helvethaica_x_med_cond_it_v3.2.eot");
+  src: url($font-path + "/db_helvethaica_x_med_cond_it_v3.2.eot?#iefix") format("embedded-opentype"), url($font-path + "/db_helvethaica_x_med_cond_it_v3.2.woff2") format("woff2"), url($font-path + "/db_helvethaica_x_med_cond_it_v3.2.woff") format("woff"), url($font-path + "/db_helvethaica_x_med_cond_it_v3.2.ttf") format("truetype"), url($font-path + "/db_helvethaica_x_med_cond_it_v3.2.svg#db_helvethaica_x68_medcondit") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+// @import "roboto";
+// @import "noto-sans";
+// $font-family-base: hel55 !default;
+$font-family-md-base: hel55 !default;
+$font-family-ios-base: $font-family-md-base;
+$font-family-wp-base: $font-family-md-base;
