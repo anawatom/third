@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, MenuController } from 'ionic-angular';
+import { Nav, Platform, MenuController, LoadingController } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import _ from 'lodash';
 
@@ -25,6 +25,7 @@ export class MyApp {
 
   constructor(
     public platform: Platform,
+    public loadingCtrl: LoadingController,
     private menuData: MenuData,
     private menuCtrl: MenuController
   ) {
@@ -38,6 +39,11 @@ export class MyApp {
       StatusBar.styleDefault();
       Splashscreen.hide();
 
+      // @TODO: loader should be moved to providers
+      let loader = this.loadingCtrl.create({
+        content: "Please wait..."
+      });
+      loader.present();
       this.menuData.getAllData()
       .subscribe(
         (res: any) => {
@@ -103,6 +109,7 @@ export class MyApp {
           console.error(error);
         },
         () => {
+          loader.dismiss();
           console.log(this.menuList);
           console.log('finally');
       });
