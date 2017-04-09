@@ -8,7 +8,7 @@ import { MenuOptionModel, SideMenuContentComponent } from '../components/side-me
 import { MenuData } from '../providers/menu-data/menu-data';
 
 import { MainPage } from '../pages/main-page/main-page';
-import { Page2 } from '../pages/page2/page2';
+import { DetailPage } from '../pages/detail-page/detail-page';
 
 
 @Component({
@@ -53,7 +53,7 @@ export class MyApp {
             //       menuId: subMenu.GIVING_INFO_SUBMENU2.SubId,
             //       iconName: 'ios-basket',
             //       displayName: subMenu.GIVING_INFO_SUBMENU2.SubNameTH,
-            //       component: Page2 || null,
+            //       component: DetailPage || null,
             //       isLogin: false,
             //       isLogout: false
             //     });
@@ -67,7 +67,7 @@ export class MyApp {
                 //     menuId: level3Menu.GIVING_INFO_SUBMENU3.SubId,
                 //     iconName: 'ios-basket',
                 //     displayName: level3Menu.GIVING_INFO_SUBMENU3.SubNameTH,
-                //     component: Page2 || null,
+                //     component: DetailPage || null,
                 //     isLogin: false,
                 //     isLogout: false
                 //   });
@@ -76,7 +76,7 @@ export class MyApp {
                   menuId: level3Menus[0].GIVING_INFO_SUBMENU2.SubId,
                   iconName: 'ios-open',
                   displayName: level3Menus[0].GIVING_INFO_SUBMENU2.SubNameTH,
-                  component: Page2 || null,
+                  component: DetailPage || null,
                   htmlContent: level3Menus[0].GIVING_INFO_SUBMENU2.SubDetailTH,
                   isLogin: false,
                   isLogout: false
@@ -92,7 +92,7 @@ export class MyApp {
               menu.iconName = 'ios-apps';
             }
             menu.displayName = subMenus[0].MenuNameTH;
-            menu.component = Page2 || null;
+            menu.component = DetailPage || null;
             menu.isLogin = false;
             menu.isLogout = false;
             tmpMenuList.push(menu);

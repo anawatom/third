@@ -7,14 +7,14 @@ import { SideMenuContentComponent } from '../components/side-menu/side-menu';
 
 // Pages
 import { MainPage } from '../pages/main-page/main-page';
-import { Page2 } from '../pages/page2/page2';
+import { DetailPage } from '../pages/detail-page/detail-page';
 
 @NgModule({
   declarations: [
     MyApp,
     SideMenuContentComponent,
     MainPage,
-    Page2
+    DetailPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -23,7 +23,7 @@ import { Page2 } from '../pages/page2/page2';
   entryComponents: [
     MyApp,
     MainPage,
-    Page2
+    DetailPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
