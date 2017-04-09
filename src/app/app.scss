@@ -15,15 +15,14 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+// Main Styles
+@import "../assets/scss/main.scss";
+// DPE Styles
+@import "../assets/scss/dpe/css/main.css";
+
 // Pages
 @import "../pages/detail-page/detail-page.scss";
 @import "../pages/main-page/main-page.scss";
 
 // Components
 @import "../components/side-menu/side-menu.scss";
-
-
-
-// DPE Styles
-// --------------------------------------------------
-@import "../assets/scss/dpe/css/main.css"

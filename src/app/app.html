@@ -1,15 +1,13 @@
 <ion-menu persistent="true" [content]="content" (ionClose)="collapseMenuOptions()">
 	<ion-header>
-		<ion-toolbar color="secondary">
+		<ion-toolbar color="dpe-green">
 			<ion-title>เมนู</ion-title>
 		</ion-toolbar>
 	</ion-header>
 
 	<ion-content>
-
 		<!-- Side Menu -->
 		<side-menu-content [accordionMode]="true" [options]="menuList" (selectOption)="selectOption($event)"></side-menu-content>
-
 	</ion-content>
 </ion-menu>
 
