@@ -3,10 +3,13 @@ import { Nav, Platform, MenuController, LoadingController } from 'ionic-angular'
 import { StatusBar, Splashscreen } from 'ionic-native';
 import _ from 'lodash';
 
+// Components
 import { MenuOptionModel, SideMenuContentComponent } from '../components/side-menu/side-menu';
 
+// Providers
 import { MenuData } from '../providers/menu-data/menu-data';
 
+// Pages
 import { MainPage } from '../pages/main-page/main-page';
 import { DetailPage } from '../pages/detail-page/detail-page';
 

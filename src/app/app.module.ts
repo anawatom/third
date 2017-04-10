@@ -5,6 +5,9 @@ import { MyApp } from './app.component';
 // Custom components
 import { SideMenuContentComponent } from '../components/side-menu/side-menu';
 
+// Pipes
+import { SafeHtmlPipe } from '../pipes/safe-html-pipe';
+
 // Pages
 import { MainPage } from '../pages/main-page/main-page';
 import { DetailPage } from '../pages/detail-page/detail-page';
@@ -13,6 +16,7 @@ import { DetailPage } from '../pages/detail-page/detail-page';
   declarations: [
     MyApp,
     SideMenuContentComponent,
+    SafeHtmlPipe,
     MainPage,
     DetailPage
   ],

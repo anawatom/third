@@ -8,6 +8,6 @@
   <!-- Use to specifies the base URL/target for all relative URLs in a document. -->
   <base href="http://www.dpe.go.th/" target="_blank">
 
-  <div class="content" [innerHtml]="htmlContent">
+  <div class="content" [innerHTML]="htmlContent | SafeHtmlPipe">
   </div>
 </ion-content>
