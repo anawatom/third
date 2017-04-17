@@ -1,33 +1,53 @@
 <ion-list no-margin no-lines>
     <template ngFor let-option [ngForOf]="options" let-i="index">
-
         <!-- It is a simple option -->
         <template [ngIf]="!option.subItems">
-            <ion-item (click)="select(option)">
+            <ion-item (click)="select(option)" class="menu-level1">
                 <ion-icon *ngIf="option.iconName" [name]="option.iconName" item-left></ion-icon>
                 {{ option.displayName }}
             </ion-item>
         </template>
-
         <!-- It has nested options -->
         <template [ngIf]="option.subItems && option.subItems.length > 0">
 
             <ion-list no-margin class="accordion-menu">
-                <ion-item class="header" tappable (click)="toggleItemOptions($event, option.subItems.length)">
+                <ion-item class="header menu-level1" tappable (click)="toggleItemOptions($event, option.subItems.length)">
                     <ion-icon [id]="'header-icon-' + i" class="header-icon" [name]="option.iconName" item-left></ion-icon>
                     {{ option.displayName }}
                 </ion-item>
                 <div [id]="'sub-item-' + i" class="options">
-                    <template ngFor let-item [ngForOf]="option.subItems">
-                        <ion-item (click)="select(item)">
-                            <ion-icon *ngIf="item.iconName" [name]="item.iconName" item-left></ion-icon>
-                            {{ item.displayName }}
-                        </ion-item>
+                    <template ngFor let-itemLevel2 [ngForOf]="option.subItems">
+                      <template [ngIf]="!itemLevel2.subItems">
+                          <ion-item class="menu-level2" (click)="select(itemLevel2)">
+                              <ion-icon *ngIf="itemLevel2.iconName" [name]="itemLevel2.iconName" item-left></ion-icon>
+                              {{ itemLevel2.displayName }}
+                          </ion-item>
+                      </template>
+                      <template [ngIf]="itemLevel2.subItems && itemLevel2.subItems.length > 0">
+                          <ion-list no-margin class="accordion-menu level2">
+                              <ion-item class="header menu-level2" tappable (click)="toggleItemOptions($event, itemLevel2.subItems.length)">
+                                  <ion-icon [id]="'header-icon-' + i" class="header-icon" [name]="itemLevel2.iconName" item-left></ion-icon>
+                                  {{ itemLevel2.displayName }}
+                              </ion-item>
+                              <!-- Level3 -->
+                              <div [id]="'sub-item-' + i" class="options">
+                                  <template ngFor let-itemLevel3 [ngForOf]="itemLevel2.subItems">
+                                      <ion-item class="menu-level3" (click)="select(itemLevel3)">
+                                          <ion-icon *ngIf="itemLevel3.iconName" [name]="itemLevel3.iconName" item-left></ion-icon>
+                                          {{ itemLevel3.displayName }}
+                                      </ion-item>
+                                  </template>
+                              </div>
+                              <!-- End Level3 -->
+                          </ion-list>
+                      </template>
+                      <!-- <ion-item (click)="select(item)">
+                          <ion-icon *ngIf="item.iconName" [name]="item.iconName" item-left></ion-icon>
+                          {{ item.displayName }}
+                      </ion-item> -->
                     </template>
                 </div>
             </ion-list>
-
         </template>
-
     </template>
 </ion-list>

@@ -19,13 +19,13 @@ ion-item.item-wp {
     &.item.item-block {
         border-bottom: 1px solid $item-color-bg;
     }
-    
-    & [item-left], 
+
+    & [item-left],
     & [item-right] {
         margin-left: 0;
     }
 
-    & ion-icon[item-left] + .item-inner, 
+    & ion-icon[item-left] + .item-inner,
     & ion-icon[item-left] + .item-input {
        margin-left: 8px;
     }
@@ -35,7 +35,6 @@ ion-item.item-wp {
 // Multi level items                    //
 // ------------------------------------ //
 ion-list.accordion-menu {
-
     ion-item.header {
 
         background-color: $header-color-bg;
@@ -52,6 +51,16 @@ ion-list.accordion-menu {
                 transform: rotate(-180deg);
             }
         }
+    }
+    ion-item {
+      &.menu-level1 {
+      }
+      &.menu-level2 {
+        padding-left: 1em;
+      }
+      &.menu-level3 {
+        padding-left: 2em;
+      }
     }
 
     div.options {

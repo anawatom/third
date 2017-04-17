@@ -23,8 +23,8 @@ export class MyApp {
   @ViewChild(SideMenuContentComponent) sideMenu: SideMenuContentComponent;
 
   public menuList: Array<MenuOptionModel> = [];
-
-  rootPage: any = MainPage;
+  public rootPage: any = MainPage;
+  private expandMenuIconName: string = 'ios-arrow-down';
 
   constructor(
     public platform: Platform,
@@ -56,46 +56,31 @@ export class MyApp {
           _.each(groupMenuLevel1, (subMenus: any, i: number) => {
             let menu = <MenuOptionModel>{};
             let menuLevel2List: Array<MenuOptionModel> = [];
-            // if (typeof subMenus[0].GIVING_INFO_SUBMENU3 === 'string') {
-            //   _.each(subMenus, (subMenu: any, i2: number) => {
-            //     menuLevel2List.push({
-            //       menuId: subMenu.GIVING_INFO_SUBMENU2.SubId,
-            //       iconName: 'ios-basket',
-            //       displayName: subMenu.GIVING_INFO_SUBMENU2.SubNameTH,
-            //       component: DetailPage || null,
-            //       isLogin: false,
-            //       isLogout: false
-            //     });
-            //   });
-            // } else { // Have level 3
-              let groupMenuLevel2 = _.groupBy(subMenus, (e, i) => { return e.GIVING_INFO_SUBMENU2.SubId; });
-              _.each(groupMenuLevel2, (level3Menus: any, i: number) => {
-                // let menuLevel3List: Array<MenuOptionModel> = [];
-                // _.each(level3Menus, (level3Menu: any, i: number) => {
-                //   menuLevel3List.push({
-                //     menuId: level3Menu.GIVING_INFO_SUBMENU3.SubId,
-                //     iconName: 'ios-basket',
-                //     displayName: level3Menu.GIVING_INFO_SUBMENU3.SubNameTH,
-                //     component: DetailPage || null,
-                //     isLogin: false,
-                //     isLogout: false
-                //   });
-                // });
-                menuLevel2List.push({
-                  menuId: level3Menus[0].GIVING_INFO_SUBMENU2.SubId,
-                  iconName: 'ios-open',
-                  displayName: level3Menus[0].GIVING_INFO_SUBMENU2.SubNameTH,
-                  component: DetailPage || null,
-                  htmlContent: level3Menus[0].GIVING_INFO_SUBMENU2.SubDetailTH,
-                  isLogin: false,
-                  isLogout: false
-                });
+            let groupMenuLevel2 = _.groupBy(subMenus, (e, i) => { return e.GIVING_INFO_SUBMENU2.SubId; });
+            _.each(groupMenuLevel2, (level3Menus: any, i: number) => {
+              let menuLevel3List: Array<MenuOptionModel> = [];
+              _.each(level3Menus, (level3Menu: any, i: number) => {
+                if (level3Menu.GIVING_INFO_SUBMENU3.SubNameTH
+                    || level3Menu.GIVING_INFO_SUBMENU3.SubDetailTH
+                    || level3Menu.GIVING_INFO_SUBMENU3.SubPicTH) {
+                  menuLevel3List.push(
+                    this.getMenuObject(level3Menu.GIVING_INFO_SUBMENU3)
+                  );
+                }
               });
-            // }
+
+              let menuLevel2: any = {};
+              menuLevel2 = this.getMenuObject(level3Menus[0].GIVING_INFO_SUBMENU2);
+              if (menuLevel3List.length > 0) {
+                menuLevel2.iconName = this.expandMenuIconName;
+                menuLevel2.subItems = menuLevel3List;
+              }
+              menuLevel2List.push(menuLevel2);
+            });
 
             menu.menuId = subMenus[0].MenuId;
             if (menuLevel2List.length > 0) {
-              menu.iconName = 'ios-arrow-down';
+              menu.iconName = this.expandMenuIconName;
               menu.subItems = menuLevel2List;
             } else {
               menu.iconName = 'ios-apps';
@@ -117,6 +102,32 @@ export class MyApp {
           console.log('finally');
       });
     });
+  }
+
+  private getMenuObject(menuObj: {SubId: number,
+                                  SubSortId: number,
+                                  SubNameTH: string,
+                                  SubDetailTH: string,
+                                  SubDetailEN: string,
+                                  SubPicTH: string,
+                                  SubPicEN: string,
+                                  SubUrlTH: string,
+                                  SubUrlEN: string}) {
+      let htmlContent: string = '';
+      htmlContent = menuObj.SubDetailTH;
+      if (menuObj.SubPicTH !== '') {
+        htmlContent += '<center><img src="/content/images/submenu/' + menuObj.SubPicTH + '"></img></center>';
+      }
+      if (htmlContent === '') {
+        htmlContent = '<center><h1>Content is not available</h1></center>';
+      }
+      return {menuId: menuObj.SubId,
+              iconName: 'ios-apps',
+              displayName: menuObj.SubNameTH,
+              component: DetailPage || null,
+              htmlContent: htmlContent,
+              isLogin: false,
+              isLogout: false};
   }
 
   // openPage(page) {
