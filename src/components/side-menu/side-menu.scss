@@ -55,7 +55,10 @@ side-menu-content {
   // ------------------------------------ //
   ion-list.accordion-menu {
     &.level1 {
-      margin: 0.5em 0;
+      // margin: 0.5em 0;
+      border-width: 0.5px 1px 0.5px 1px;
+      border-color: gray;
+      border-style: solid;
     }
     ion-item.header {
         color: $font-color;
