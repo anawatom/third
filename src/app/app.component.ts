@@ -12,7 +12,7 @@ import { MenuData } from '../providers/menu-data/menu-data';
 // Pages
 import { MainPage } from '../pages/main-page/main-page';
 import { DetailPage } from '../pages/detail-page/detail-page';
-
+import { ListPage } from '../pages/list-page/list-page';
 
 @Component({
   templateUrl: 'app.html',

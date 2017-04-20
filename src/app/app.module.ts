@@ -11,6 +11,7 @@ import { SafeHtmlPipe } from '../pipes/safe-html-pipe';
 // Pages
 import { MainPage } from '../pages/main-page/main-page';
 import { DetailPage } from '../pages/detail-page/detail-page';
+import { ListPage } from '../pages/list-page/list-page';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DetailPage } from '../pages/detail-page/detail-page';
     SideMenuContentComponent,
     SafeHtmlPipe,
     MainPage,
-    DetailPage
+    DetailPage,
+    ListPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
