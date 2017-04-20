@@ -3,6 +3,8 @@ import { Http, URLSearchParams, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
+import { BASE_API_URL } from '../constant.ts';
+
 /*
   Generated class for the Testing provider.
 
@@ -17,7 +19,7 @@ export class MenuData {
     let params = new URLSearchParams();
     params.set('MenuId', '');
 
-    return this.http.get('http://mobile.dpe.go.th/web/index.php?r=ws/service/get-tbl-menu', {
+    return this.http.get(BASE_API_URL + 'ws/service/get-tbl-menu', {
       'search': params
     })
     .map((res: Response) => {

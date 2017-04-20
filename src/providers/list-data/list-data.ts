@@ -4,6 +4,9 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import _ from 'lodash';
 
+import { BASE_API_URL } from '../constant.ts';
+
+
 /*
   Generated class for the Testing provider.
 
@@ -46,7 +49,7 @@ export class ListData {
 
     if (url.indexOf('manager') !== -1) {
       result = {
-        'url': 'http://mobile.dpe.go.th/web/index.php?r=ws/service/get-tbl-manager&Manager',
+        'url': BASE_API_URL + 'ws/service/get-tbl-manager&Manager',
         'params': [
           'ManagerDepartmentId=' + id
         ]
