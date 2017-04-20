@@ -29,7 +29,8 @@ import { ListPage } from '../pages/list-page/list-page';
   entryComponents: [
     MyApp,
     MainPage,
-    DetailPage
+    DetailPage,
+    ListPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

@@ -113,19 +113,24 @@ export class MyApp {
                                   SubPicEN: string,
                                   SubUrlTH: string,
                                   SubUrlEN: string}) {
-      let htmlContent: string = '';
-      htmlContent = menuObj.SubDetailTH;
-      if (menuObj.SubPicTH !== '') {
-        htmlContent += '<center><img src="/content/images/submenu/' + menuObj.SubPicTH + '"></img></center>';
+      let component: any = null;
+      let content: string = '';
+      if (menuObj.SubDetailTH !== '' || menuObj.SubPicTH !== '') {
+        component = DetailPage;
+        content = menuObj.SubDetailTH;
+        if (menuObj.SubPicTH !== '') {
+          content += '<center><img src="/content/images/submenu/' + menuObj.SubPicTH + '"></img></center>';
+        }
+      } else if (menuObj.SubUrlTH !== '') {
+        component = ListPage;
+        content = menuObj.SubUrlTH;
       }
-      if (htmlContent === '') {
-        htmlContent = '<center><h1>Content is not available</h1></center>';
-      }
+
       return {menuId: menuObj.SubId,
               iconName: 'ios-apps',
               displayName: menuObj.SubNameTH,
-              component: DetailPage || null,
-              htmlContent: htmlContent,
+              component: component,
+              htmlContent: content, // @TODO: htmlContent key should be changed to content
               isLogin: false,
               isLogout: false};
   }
@@ -146,7 +151,7 @@ export class MyApp {
       // Redirect to the selected page
       this.nav.push(option.component || MainPage, {
         'title': option.displayName,
-        'htmlContent': option.htmlContent
+        'htmlContent': option.htmlContent // @TODO: htmlContent key should be changed to content
       });
     });
   }
