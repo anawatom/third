@@ -8,6 +8,7 @@ import { MenuOptionModel, SideMenuContentComponent } from '../components/side-me
 
 // Providers
 import { MenuData } from '../providers/menu-data/menu-data';
+import { LoaderHelper } from '../providers/loader-helper/loader-helper';
 
 // Pages
 import { MainPage } from '../pages/main-page/main-page';
@@ -16,7 +17,7 @@ import { ListPage } from '../pages/list-page/list-page';
 
 @Component({
   templateUrl: 'app.html',
-  providers: [MenuData]
+  providers: [MenuData, LoaderHelper]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -29,6 +30,7 @@ export class MyApp {
   constructor(
     public platform: Platform,
     public loadingCtrl: LoadingController,
+    private loader: LoaderHelper,
     private menuData: MenuData,
     private menuCtrl: MenuController
   ) {
@@ -42,11 +44,7 @@ export class MyApp {
       StatusBar.styleDefault();
       Splashscreen.hide();
 
-      // @TODO: loader should be moved to providers
-      let loader = this.loadingCtrl.create({
-        content: "Please wait..."
-      });
-      loader.present();
+      this.loader.show();
       this.menuData.getAllData()
       .subscribe(
         (res: any) => {
@@ -97,7 +95,7 @@ export class MyApp {
           console.error(error);
         },
         () => {
-          loader.dismiss();
+          this.loader.hide();
           console.log(this.menuList);
           console.log('finally');
       });
