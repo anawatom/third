@@ -200,7 +200,21 @@ export class SideMenuContentComponent {
 
 	// Toggle the sub items of the selected option
 	private toggleOptionSubItems(optionsContainer: any, elementHeight: number, itemsCount: number): void {
-		optionsContainer.style.height = this.subItemsAreExpanded(optionsContainer) ? '0px' : `${(elementHeight * itemsCount)}px`;
+		let parentOptionsDivElement = optionsContainer.parentElement.parentElement;
+		let level = optionsContainer.getAttribute('data-level');
+		let optionsContainerHeight = elementHeight * itemsCount;
+
+		// Adjust parent option height
+		if (level > 2) {
+			if (this.subItemsAreExpanded(optionsContainer)) { // Already expand, it will be collapsed
+				parentOptionsDivElement.style.height = (parseInt(parentOptionsDivElement.style.height) - optionsContainerHeight) + 'px';
+			} else { // Already close, it will be expanded
+				parentOptionsDivElement.style.height = (parseInt(parentOptionsDivElement.style.height) + optionsContainerHeight) + 'px';
+			}
+		}
+		// ---
+		// optionsContainer.style.height = this.subItemsAreExpanded(optionsContainer) ? '0px' : `${(elementHeight * itemsCount)}px`;
+		optionsContainer.style.height = this.subItemsAreExpanded(optionsContainer) ? '0px' : optionsContainerHeight + 'px';
 	}
 
 	// Toggle the arrow icon of the selected option

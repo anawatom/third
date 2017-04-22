@@ -16,7 +16,7 @@
                     <ion-icon [id]="'header-icon-' + i" class="header-icon" [name]="option.iconName" item-left></ion-icon>
                     {{ option.displayName }}
                 </ion-item>
-                <div [id]="'sub-item-' + i" class="options">
+                <div [id]="'sub-item-' + i" class="options" [attr.data-level]="2">
                     <template ngFor let-itemLevel2 [ngForOf]="option.subItems">
                       <template [ngIf]="!itemLevel2.subItems">
                           <ion-item class="menu-level2" (click)="select(itemLevel2)">
@@ -31,7 +31,7 @@
                                   {{ itemLevel2.displayName }}
                               </ion-item>
                               <!-- Level3 -->
-                              <div [id]="'sub-item-' + i" class="options">
+                              <div [id]="'sub-item-' + i" class="options" [attr.data-level]="3">
                                   <template ngFor let-itemLevel3 [ngForOf]="itemLevel2.subItems">
                                       <ion-item class="menu-level3" (click)="select(itemLevel3)">
                                           <ion-icon *ngIf="itemLevel3.iconName" [name]="itemLevel3.iconName" item-left></ion-icon>
