@@ -12,7 +12,7 @@ import { LoaderHelper } from '../providers/loader-helper/loader-helper';
 
 // Pages
 import { MainPage } from '../pages/main-page/main-page';
-import { DetailPage } from '../pages/detail-page/detail-page';
+import { HtmlPage } from '../pages/html-page/html-page';
 import { ListPage } from '../pages/list-page/list-page';
 
 @Component({
@@ -84,7 +84,7 @@ export class MyApp {
               menu.iconName = 'ios-apps';
             }
             menu.displayName = subMenus[0].MenuNameTH;
-            menu.component = DetailPage || null;
+            menu.component = HtmlPage || null;
             menu.isLogin = false;
             menu.isLogout = false;
             tmpMenuList.push(menu);
@@ -114,7 +114,7 @@ export class MyApp {
       let component: any = null;
       let content: string = '';
       if (menuObj.SubDetailTH !== '' || menuObj.SubPicTH !== '') {
-        component = DetailPage;
+        component = HtmlPage;
         content = menuObj.SubDetailTH;
         if (menuObj.SubPicTH !== '') {
           content += '<center><img src="/content/images/submenu/' + menuObj.SubPicTH + '"></img></center>';

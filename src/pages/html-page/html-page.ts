@@ -6,10 +6,10 @@ import { NavController, NavParams } from 'ionic-angular';
 import { SafeHtml } from '../pipes/safe-html';
 
 @Component({
-  selector: 'detail-page',
-  templateUrl: 'detail-page.html'
+  selector: 'html-page',
+  templateUrl: 'html-page.html'
 })
-export class DetailPage {
+export class HtmlPage {
   // selectedItem: any;
   // icons: string[];
   // items: Array<{title: string, note: string, icon: string}>;

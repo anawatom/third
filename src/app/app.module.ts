@@ -10,7 +10,7 @@ import { SafeHtmlPipe } from '../pipes/safe-html-pipe';
 
 // Pages
 import { MainPage } from '../pages/main-page/main-page';
-import { DetailPage } from '../pages/detail-page/detail-page';
+import { HtmlPage } from '../pages/html-page/html-page';
 import { ListPage } from '../pages/list-page/list-page';
 
 @NgModule({
@@ -19,7 +19,7 @@ import { ListPage } from '../pages/list-page/list-page';
     SideMenuContentComponent,
     SafeHtmlPipe,
     MainPage,
-    DetailPage,
+    HtmlPage,
     ListPage
   ],
   imports: [
@@ -29,7 +29,7 @@ import { ListPage } from '../pages/list-page/list-page';
   entryComponents: [
     MyApp,
     MainPage,
-    DetailPage,
+    HtmlPage,
     ListPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
