@@ -8,7 +8,7 @@ export class LoaderHelper {
     private loadingCtrl: LoadingController
   ) {
     this.loader = this.loadingCtrl.create({
-      content: "Please wait..."
+      content: "กรุณารอสักครู่..."
     });
   }
 
