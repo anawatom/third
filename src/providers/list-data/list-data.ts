@@ -27,11 +27,12 @@ export class ListData {
       });
     }
 
+    // @TODO: Handle when URL is not correct
     return this.http.get(urlData.url, {
       'search': params
     })
     .map((res: Response) => {
-      return res.json().data;
+      return this.formatData(urlData.type, res.json().data);
     });
   }
 
@@ -49,11 +50,31 @@ export class ListData {
 
     if (url.indexOf('manager') !== -1) {
       result = {
+        'type': 'manager',
         'url': BASE_API_URL + 'ws/service/get-tbl-manager&Manager',
         'params': [
           'ManagerDepartmentId=' + id
         ]
       };
+    }
+
+    return result;
+  }
+
+  private formatData(type: string, data: any): any[] {
+    let result = [];
+    if (type === 'manager') {
+      _.each(data, (e,i) => {
+        result.push({
+          id: e.ManagerDepartmentId,
+          imagePath: 'http://www.dpe.go.th/content/images/manager/' + e.ManagerPic,
+          title: e.ManagerNameTH,
+          htmlDescription: '<p>ตำแหน่ง ' +e.ManagerPositionTH+ '</p>'
+          + '<p>โทรศัพท์ ' + e.ManagerTel + '</p>'
+          + '<p>โทรศัพท์ภายใน ' + e.ManagerExtension + '</p>'
+          + '<p>อีเมล์ ' + e.ManagerEmail + '</p>'
+        });
+      });
     }
 
     return result;
