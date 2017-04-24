@@ -16,8 +16,11 @@ import { SafeHtml } from '../../pipes/safe-html';
 })
 export class ListPage {
   public title: string = '';
+  // @TODO: data should be move to list-data provider
   public data: Array<{id: number,
+                        type: string,
                         imagePath: string,
+                        filePath: string,
                         title: string,
                         description?: string
                         htmlDescription?: string}> = [];

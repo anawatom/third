@@ -6,13 +6,21 @@
 
 <ion-content padding>
   <ion-list no-margin>
-    <ion-item *ngFor="let item of data">
-      <ion-avatar item-left *ngIf="item.imagePath">
-        <img [src]="item.imagePath">
-      </ion-avatar>
-      <h2>{{item.title}}</h2>
-      <p *ngIf="item.htmlDescription" class="description" [innerHTML]="item.htmlDescription | SafeHtmlPipe"></p>
-      <p *ngIf="item.description" class="description" [innerHTML]="item.description"></p>
-    </ion-item>
+    <template ngFor let-item [ngForOf]="data">
+      <ion-item *ngIf="item.type === 'manager'" [id]="item.id">
+          <ion-avatar item-left *ngIf="item.imagePath">
+            <img [src]="item.imagePath">
+          </ion-avatar>
+          <h2>{{item.title}}</h2>
+          <p *ngIf="item.htmlDescription" class="description" [innerHTML]="item.htmlDescription | SafeHtmlPipe"></p>
+          <p *ngIf="item.description" class="description" [innerHTML]="item.description"></p>
+      </ion-item>
+      <ion-item *ngIf="item.type === 'download'" [id]="item.id">
+        <a *ngIf="item.filePath" [attr.href]="item.filePath" target="_blank">{{item.title}}</a>
+        <p *ngIf="item.downloadCount">
+          <ion-icon name="ios-download-outline" title="จำนวนดาวน์โหลด"></ion-icon> {{item.downloadCount}}
+        </p>
+      </ion-item>
+    </template>
   </ion-list>
 </ion-content>

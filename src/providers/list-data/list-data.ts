@@ -56,6 +56,14 @@ export class ListData {
           'ManagerDepartmentId=' + id
         ]
       };
+    } else if (url.indexOf('publishing') !== -1) {
+      result = {
+        'type': 'download',
+        'url': BASE_API_URL + 'ws/service/get-tbl-download',
+        'params': [
+          'DownloadCategoryId=' + id
+        ]
+      };
     }
 
     return result;
@@ -63,16 +71,28 @@ export class ListData {
 
   private formatData(type: string, data: any): any[] {
     let result = [];
+
     if (type === 'manager') {
       _.each(data, (e,i) => {
         result.push({
           id: e.ManagerDepartmentId,
+          type: type,
           imagePath: 'http://www.dpe.go.th/content/images/manager/' + e.ManagerPic,
           title: e.ManagerNameTH,
           htmlDescription: '<p>ตำแหน่ง ' +e.ManagerPositionTH+ '</p>'
           + '<p>โทรศัพท์ ' + e.ManagerTel + '</p>'
           + '<p>โทรศัพท์ภายใน ' + e.ManagerExtension + '</p>'
           + '<p>อีเมล์ ' + e.ManagerEmail + '</p>'
+        });
+      });
+    } else if (type === 'download') {
+      _.each(data, (e,i) => {
+        result.push({
+          id: e.DownloadSortId,
+          type: type,
+          filePath: 'http://www.dpe.go.th/content/file/download/' + e.DownloadFile,
+          title: e.DownloadNameTH,
+          downloadCount: e.DownloadView
         });
       });
     }
