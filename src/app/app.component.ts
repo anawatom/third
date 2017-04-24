@@ -113,15 +113,15 @@ export class MyApp {
                                   SubUrlEN: string}) {
       let component: any = null;
       let content: string = '';
-      if (menuObj.SubUrlTH !== '') {
-        component = ListPage;
-        content = menuObj.SubUrlTH;
-      } else {
+      if (menuObj.SubDetailTH !== '') {
         component = HtmlPage;
         content = menuObj.SubDetailTH;
         if (menuObj.SubPicTH !== '') {
           content += '<center><img src="/content/images/submenu/' + menuObj.SubPicTH + '"></img></center>';
         }
+      } else {
+        component = ListPage;
+        content = menuObj.SubUrlTH;
       }
 
       return {menuId: menuObj.SubId,
