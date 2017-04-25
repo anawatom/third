@@ -72,6 +72,14 @@ export class ListData {
           'ArticleCategoryId=' + id
         ]
       };
+    } else if (url.indexOf('gallery') !== -1) {
+      result = {
+        'type': 'gallery',
+        'url': BASE_API_URL + 'ws/service/get-tbl-gallery-main',
+        'params': [
+          'GalleryCategoryId=' + id
+        ]
+      };
     }
 
     return result;
@@ -109,6 +117,15 @@ export class ListData {
           id: e.ArticleCategorySubId,
           type: type,
           title: e.ArticleCategorySubNameTH
+        });
+      });
+    } else if (type === 'gallery') {
+      _.each(data, (e,i) => {
+        result.push({
+          id: e.GalleryId,
+          type: type,
+          title: e.GalleryNameTH,
+          imagePath: 'http://www.dpe.go.th/home/thumbmain/' + e.GalleryId + '/' + e.pic + '/252/150/',
         });
       });
     }

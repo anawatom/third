@@ -45,6 +45,13 @@ export class DetailData {
           'ArticleCategorySubId=' + id
         ]
       };
+    } else if (type === 'gallery') {
+      result = {
+        'url': BASE_API_URL + 'ws/service/get-tbl-gallery-photo',
+        'params': [
+          'GalleryMainGalleryId=' + id
+        ]
+      };
     }
 
     return result;
@@ -61,6 +68,14 @@ export class DetailData {
           title: e.ArticleTitleTH,
           imagePath: 'http://www.dpe.go.th/home/thumb/article/' + e.ArticlePic + '/207/288',
           filePath: 'http://www.dpe.go.th/content/file/article/' + e.ArticleFileTH
+        });
+      });
+    } else if (type === 'gallery') {
+      _.each(data, (e,i) => {
+        result.push({
+          id: e.GalleryMainGalleryId,
+          type: type,
+          imagePath: 'http://www.dpe.go.th/home/thumbmain/' +  e.GalleryMainGalleryId + '/' + e.GalleryMainPic + '/180/110/'
         });
       });
     }

@@ -31,6 +31,7 @@ export class DetailPage {
     this.type = this.navParams.get('type');
 
     this.loaderHelper.show();
+    this.data = null;
     this.detailData.fetchData(this.type, this.id)
     .subscribe(
       (res: any) => {

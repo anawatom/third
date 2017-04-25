@@ -27,6 +27,10 @@
       <ion-item *ngIf="item.type === 'article'" [id]="item.id" (click)="openDetailPage(item.id, item.title, item.type)">
         <h2>{{item.title}}</h2>
       </ion-item>
+      <ion-item *ngIf="item.type === 'gallery'" [id]="item.id" (click)="openDetailPage(item.id, item.title, item.type)">
+        <h2>{{item.title}}</h2>
+        <img *ngIf="item.imagePath" [attr.src]="item.imagePath">
+      </ion-item>
     </template>
   </ion-list>
 </ion-content>

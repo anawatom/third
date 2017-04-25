@@ -16,6 +16,10 @@
         <ion-icon name="ios-download-outline" title="จำนวนดาวน์โหลด"></ion-icon>
         <a *ngIf="item.filePath" [attr.href]="item.filePath" target="_blank">ดาวน์โหลด</a>
       </ion-item>
+      <ion-item *ngIf="item.type === 'gallery'" [id]="item.id">
+        <!-- <h2>{{item.title}}</h2> -->
+        <img *ngIf="item.imagePath" [attr.src]="item.imagePath" style="display:block;margin:auto;">
+      </ion-item>
     </template>
   </ion-list>
 </ion-content>

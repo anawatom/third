@@ -37,6 +37,7 @@ export class ListPage {
     this.title = this.navParams.get('title');
 
     this.loaderHelper.show();
+    this.data = null;
     this.listData.fetchData(this.navParams.get('htmlContent'))
     .subscribe(
       (res: any) => {
