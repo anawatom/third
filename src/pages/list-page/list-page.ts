@@ -42,8 +42,7 @@ export class ListPage {
       (res: any) => {
         this.data = res;
         this.loaderHelper.hide();
-        console.log(this.data);
-        console.log('finally');
+        console.log('List data: ', this.data);
       },
       (error: any) => {
         console.log(error);

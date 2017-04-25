@@ -36,8 +36,7 @@ export class DetailPage {
       (res: any) => {
         this.data = res;
         this.loaderHelper.hide();
-        console.log(this.data);
-        console.log('finally');
+        console.log('Detail data: ', this.data);
       },
       (error: any) => {
         console.log(error);
