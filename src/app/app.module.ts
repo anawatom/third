@@ -12,6 +12,7 @@ import { SafeHtmlPipe } from '../pipes/safe-html-pipe';
 import { MainPage } from '../pages/main-page/main-page';
 import { HtmlPage } from '../pages/html-page/html-page';
 import { ListPage } from '../pages/list-page/list-page';
+import { DetailPage } from '../pages/detail-page/detail-page';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ListPage } from '../pages/list-page/list-page';
     SafeHtmlPipe,
     MainPage,
     HtmlPage,
-    ListPage
+    ListPage,
+    DetailPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -30,7 +32,8 @@ import { ListPage } from '../pages/list-page/list-page';
     MyApp,
     MainPage,
     HtmlPage,
-    ListPage
+    ListPage,
+    DetailPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
