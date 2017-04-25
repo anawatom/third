@@ -6,6 +6,9 @@
 
 <ion-content padding>
   <ion-list no-margin>
+    <ion-item *ngIf="data !== null && data.length === 0">
+      <p>ไม่พบข้อมูล</p>
+    </ion-item>
     <template ngFor let-item [ngForOf]="data">
       <ion-item *ngIf="item.type === 'manager'" [id]="item.id">
           <ion-avatar item-left *ngIf="item.imagePath">

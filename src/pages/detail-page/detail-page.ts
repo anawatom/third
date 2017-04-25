@@ -18,7 +18,7 @@ export class DetailPage {
   public id: number;
   public title: string;
   public type: string;
-  public data: string;
+  public data: any[] = null;
 
   constructor(
     private navCtrl: NavController,
@@ -40,6 +40,7 @@ export class DetailPage {
       },
       (error: any) => {
         console.log(error);
+        this.data = [];
         this.loaderHelper.hide();
       }
     );

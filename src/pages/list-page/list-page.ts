@@ -26,7 +26,7 @@ export class ListPage {
                         filePath: string,
                         title: string,
                         description?: string
-                        htmlDescription?: string}> = [];
+                        htmlDescription?: string}> = null;
 
   constructor(
     private navCtrl: NavController,
@@ -46,6 +46,7 @@ export class ListPage {
       },
       (error: any) => {
         console.log(error);
+        this.data = [];
         this.loaderHelper.hide();
       }
     );

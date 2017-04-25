@@ -6,6 +6,9 @@
 
 <ion-content padding>
   <ion-list no-margin>
+    <ion-item *ngIf="data !== null && data.length === 0">
+      <p>ไม่พบข้อมูล</p>
+    </ion-item>
     <template ngFor let-item [ngForOf]="data">
       <ion-item *ngIf="item.type === 'article'" [id]="item.id">
         <h2>{{item.title}}</h2>
