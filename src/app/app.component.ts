@@ -113,7 +113,7 @@ export class MyApp {
                                   SubUrlEN: string}) {
       let component: any = null;
       let content: string = '';
-      if (menuObj.SubDetailTH !== '') {
+      if (menuObj.SubDetailTH !== '' || menuObj.SubPicTH !== '') {
         component = HtmlPage;
         content = menuObj.SubDetailTH;
         if (menuObj.SubPicTH !== '') {
