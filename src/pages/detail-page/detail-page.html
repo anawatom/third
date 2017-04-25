@@ -5,6 +5,14 @@
 </ion-header>
 
 <ion-content padding>
-  <div class="content" [innerHTML]="htmlContent | SafeHtmlPipe">
-  </div>
+  <ion-list no-margin>
+    <template ngFor let-item [ngForOf]="data">
+      <ion-item *ngIf="item.type === 'article'" [id]="item.id">
+        <h2>{{item.title}}</h2>
+        <img *ngIf="item.imagePath" [attr.src]="item.imagePath">
+        <ion-icon name="ios-download-outline" title="จำนวนดาวน์โหลด"></ion-icon>
+        <a *ngIf="item.filePath" [attr.href]="item.filePath" target="_blank">ดาวน์โหลด</a>
+      </ion-item>
+    </template>
+  </ion-list>
 </ion-content>

@@ -9,6 +9,9 @@ import { LoaderHelper } from '../../providers/loader-helper/loader-helper';
 // Pipes
 import { SafeHtml } from '../../pipes/safe-html';
 
+// Pages
+import { DetailPage } from '../detail-page/detail-page';
+
 @Component({
   selector: 'list-page',
   templateUrl: 'list-page.html',
@@ -49,5 +52,13 @@ export class ListPage {
     );
   }
 
+  openDetailPage(id: number, title: string, type: string) {
+    console.log(type, id);
+    this.navCtrl.push(DetailPage, {
+      id: id,
+      title: title,
+      type: type
+    });
+  }
 
 }

@@ -64,6 +64,14 @@ export class ListData {
           'DownloadCategoryId=' + id
         ]
       };
+    } else if (url.indexOf('article') !== -1) {
+      result = {
+        'type': 'article',
+        'url': BASE_API_URL + 'ws/service/get-tbl-article-title',
+        'params': [
+          'ArticleCategoryId=' + id
+        ]
+      };
     }
 
     return result;
@@ -93,6 +101,14 @@ export class ListData {
           filePath: 'http://www.dpe.go.th/content/file/download/' + e.DownloadFile,
           title: e.DownloadNameTH,
           downloadCount: e.DownloadView
+        });
+      });
+    } else if (type === 'article') {
+      _.each(data, (e,i) => {
+        result.push({
+          id: e.ArticleCategorySubId,
+          type: type,
+          title: e.ArticleCategorySubNameTH
         });
       });
     }
