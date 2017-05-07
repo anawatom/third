@@ -1,5 +1,15 @@
 // http://ionicframework.com/docs/v2/theming/
 
+// App HTML styles
+#mainMenu {
+  ion-content {
+    background-image: url("../assets/images/menu-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+// ---
+
 
 // App Global Sass
 // --------------------------------------------------
