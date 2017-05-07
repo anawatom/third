@@ -2,7 +2,7 @@
 <widget id="com.ionicframework.third329398" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>กรมพลศึกษา</name>
   <description>แอปพลิแคชั่น กรมพลศึกษา</description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+  <author email="webmaster@dpe.go.th" href="http://www.dpe.go.th/">กรมพลศึกษา</author>
   <content src="index.html"/>
   <access origin="*"/>
   <allow-navigation href="http://ionic.local/*"/>
